@@ -195,69 +195,90 @@ function getBook(id) {
 // };
 // console.log(allCounter(book));
 
-const allCounter = (book) => {
-  const goodreads = book.reviews?.goodreads?.reviewsCount;
-  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
-  return goodreads + librarything;
-};
-// console.log(allCounter(book));
+// const allCounter = (book) => {
+//   const goodreads = book.reviews?.goodreads?.reviewsCount;
+//   const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+//   return goodreads + librarything;
+// };
+// // console.log(allCounter(book));
 
-const books = getBooks();
-books;
+// const books = getBooks();
+// books;
 
-const titles = books.map((book) => book.title);
-titles;
+// const titles = books.map((book) => book.title);
+// titles;
 
-const getDate = books.map((book) => ({
-  title: book.title,
-  author: book.author,
-  reviewsCount: allCounter(book),
-}));
+// const getDate = books.map((book) => ({
+//   title: book.title,
+//   author: book.author,
+//   reviewsCount: allCounter(book),
+// }));
 
-console.log(getDate);
+// console.log(getDate);
 
-const longBook = books
-  .filter((book) => book.pages > 500)
-  .filter((book) => book.hasMovieAdaptation);
-longBook;
+// const longBook = books
+//   .filter((book) => book.pages > 500)
+//   .filter((book) => book.hasMovieAdaptation);
+// longBook;
 
-const adventureBook = books
-  .filter((book) => book.genres.includes("adventure"))
-  .map((book) => ({
-    title: book.title,
-    author: book.author,
-    reviewsCount: allCounter(book),
-  }));
+// const adventureBook = books
+//   .filter((book) => book.genres.includes("adventure"))
+//   .map((book) => ({
+//     title: book.title,
+//     author: book.author,
+//     reviewsCount: allCounter(book),
+//   }));
 
-console.log(adventureBook);
+// console.log(adventureBook);
 
-const totalPages = books.reduce((acc, price) => acc + price.pages, 0);
+// const totalPages = books.reduce((acc, price) => acc + price.pages, 0);
 
-totalPages;
+// totalPages;
 
-const arr = [3, 5, 7, 9, 1, 4, 2];
-const sum = arr.slice().sort((a, b) => b - a);
-console.log(sum);
-arr;
+// const arr = [3, 5, 7, 9, 1, 4, 2];
+// const sum = arr.slice().sort((a, b) => b - a);
+// console.log(sum);
+// arr;
 
-const allPagesBook = books.slice().sort((a, b) => a.pages - b.pages);
-console.log(allPagesBook);
+// const allPagesBook = books.slice().sort((a, b) => a.pages - b.pages);
+// console.log(allPagesBook);
 
-const newBook = {
-  id: 6,
-  title: "Хуйня книга",
-  author: "Педик",
-};
+// const newBook = {
+//   id: 6,
+//   title: "Хуйня книга",
+//   author: "Педик",
+// };
 
-const addBooks = [...books, newBook];
-addBooks;
+// const addBooks = [...books, newBook];
+// addBooks;
 
-const getDeleteBook = addBooks.filter((book) => book.id !== 3);
-getDeleteBook;
+// const getDeleteBook = addBooks.filter((book) => book.id !== 3);
+// getDeleteBook;
 
-const booksAuthorUpdate = getDeleteBook.map((book) =>
-  book.id === 1 ? { ...book, pages: 1210 } : book
-);
-booksAuthorUpdate;
+// const booksAuthorUpdate = getDeleteBook.map((book) =>
+//   book.id === 1 ? { ...book, pages: 1210 } : book
+// );
+// booksAuthorUpdate;
 
-4 / 29;
+// 4 / 29;
+
+// fetch("https://jsonplaceholder.typicode.com/todos/1")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+// console.log("Maks");
+
+async function getAut() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+
+  return data;
+}
+
+getAut();
+
+const todo = getAut();
+console.log(todo);
+
+console.log("maks");
